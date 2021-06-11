@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @rolladex.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @rolladex.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @rolladex.email %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @rolladex.telephone %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @rolladex.twitter %>
+</p>
+
+<%= link_to 'Edit', edit_rolladex_path(@rolladex) %> |
+<%= link_to 'Back', rolladexes_path %>
