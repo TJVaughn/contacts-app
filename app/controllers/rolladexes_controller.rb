@@ -25,7 +25,7 @@ class RolladexesController < ApplicationController
 
     respond_to do |format|
       if @rolladex.save
-        format.html { redirect_to @rolladex, notice: "Rolladex was successfully created." }
+        format.html { redirect_to @rolladex, notice: "Contact was successfully created." }
         format.json { render :show, status: :created, location: @rolladex }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class RolladexesController < ApplicationController
   def update
     respond_to do |format|
       if @rolladex.update(rolladex_params)
-        format.html { redirect_to @rolladex, notice: "Rolladex was successfully updated." }
+        format.html { redirect_to @rolladex, notice: "Contact was successfully updated." }
         format.json { render :show, status: :ok, location: @rolladex }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class RolladexesController < ApplicationController
   def destroy
     @rolladex.destroy
     respond_to do |format|
-      format.html { redirect_to rolladexes_url, notice: "Rolladex was successfully destroyed." }
+      format.html { redirect_to rolladexes_url, notice: "Contact was successfully destroyed." }
       format.json { head :no_content }
     end
   end

@@ -29,6 +29,14 @@
             <%= link_to 'About', about_path, :class => current_class?(about_path) %>
           <%# <a class="nav-link" href="/about">About</a> %>
         </li>
+
+        <li class="nav-item">
+            <%= link_to 'Contacts', rolladexes_path, :class => current_class?(rolladexes_path) %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'New Contact', new_rolladex_path, :class => current_class?(new_rolladex_path) %>
+        </li>
+        
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

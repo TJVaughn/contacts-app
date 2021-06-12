@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @rolladex.first_name %>
-</p>
+<div class="h-100 p-5 bg-dark rounded-3 text-white mt-5 mb-5">
+<h1>
+  <%# <strong>First name:</strong> %>
+  <%= @rolladex.first_name %> <%= @rolladex.last_name %>
 
-<p>
+</h1>
+
+<%# <p>
   <strong>Last name:</strong>
-  <%= @rolladex.last_name %>
-</p>
+</p> %>
 
 <p>
-  <strong>Email:</strong>
-  <%= @rolladex.email %>
-</p>
-
-<p>
-  <strong>Telephone:</strong>
-  <%= @rolladex.telephone %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
+  <%# <strong>Email:</strong> %>
+  <%= @rolladex.email %> | 
+  <%= @rolladex.telephone %> |  
   <%= @rolladex.twitter %>
+
 </p>
 
-<%= link_to 'Edit', edit_rolladex_path(@rolladex) %> |
-<%= link_to 'Back', rolladexes_path %>
+<%# <p> %>
+  <%# <strong>Telephone:</strong> %>
+<%# </p> %>
+
+<%# <p> %>
+  <%# <strong>Twitter:</strong> %>
+<%# </p> %>
+</div>
+<%= link_to 'Edit', edit_rolladex_path(@rolladex), class: "btn btn-secondary" %> |
+<%= link_to 'Back', rolladexes_path, class: "btn btn-dark" %>
