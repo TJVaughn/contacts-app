@@ -1,5 +1,7 @@
 class RolladexesController < ApplicationController
   before_action :set_rolladex, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /rolladexes or /rolladexes.json
   def index
@@ -12,7 +14,8 @@ class RolladexesController < ApplicationController
 
   # GET /rolladexes/new
   def new
-    @rolladex = Rolladex.new
+    # @rolladex = Rolladex.new
+    @rolladex = current_user.rolladexes.build
   end
 
   # GET /rolladexes/1/edit
@@ -21,7 +24,8 @@ class RolladexesController < ApplicationController
 
   # POST /rolladexes or /rolladexes.json
   def create
-    @rolladex = Rolladex.new(rolladex_params)
+    # @rolladex = Rolladex.new(rolladex_params)
+    @rolladex = current_user.rolladexes.build(rolladex_params)
 
     respond_to do |format|
       if @rolladex.save
@@ -56,6 +60,11 @@ class RolladexesController < ApplicationController
     end
   end
 
+  def correct_user
+    @rolladex = current_user.rolladexes.find_by(id: params[:id])
+    redirect_to root_path, notice: "Not Authorized" if @rolladex.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rolladex
@@ -64,6 +73,6 @@ class RolladexesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rolladex_params
-      params.require(:rolladex).permit(:first_name, :last_name, :email, :telephone, :twitter)
+      params.require(:rolladex).permit(:first_name, :last_name, :email, :telephone, :twitter, :user_id)
     end
 end

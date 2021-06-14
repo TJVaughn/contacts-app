@@ -1,34 +1,40 @@
-<p id="notice"><%= notice %></p>
-
+<% if user_signed_in?%>
 <h1>Contacts</h1>
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="table-dark">
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <%# <th>First name</th> %>
+      <th>Name</th>
       <th>Email</th>
       <th>Telephone</th>
       <th>Twitter</th>
-      <th colspan="3"></th>
+      <%# <th>User</th> %>
+
+      <%# <th colspan="1"></th> %>
     </tr>
   </thead>
 
   <tbody>
     <% @rolladexes.each do |rolladex| %>
-      <tr>
-        <td><%= rolladex.first_name %></td>
-        <td><%= rolladex.last_name %></td>
-        <td><%= rolladex.email %></td>
-        <td><%= rolladex.telephone %></td>
-        <td><%= rolladex.twitter %></td>
-        <td><%= link_to 'Show', rolladex %></td>
-        <td><%= link_to 'Edit', edit_rolladex_path(rolladex) %></td>
-        <td><%= link_to 'Destroy', rolladex, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if rolladex.user == current_user %>
+        <tr>
+          <td><%= link_to "#{rolladex.first_name} #{rolladex.last_name}", rolladex %></td>
+          <%# <td>= rolladex.last_name</td> %>
+          <td><%= rolladex.email %></td>
+          <td><%= rolladex.telephone %></td>
+          <td><%= rolladex.twitter %></td>
+
+          <%# <td>= link_to 'Edit', edit_rolladex_path(rolladex)</td> %>
+          <%#<td>= link_to 'Destroy', rolladex, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger"</td> %>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
   <%= link_to 'New Contact', new_rolladex_path, class: "btn btn-secondary" %>
+<% else %>
+ <%= render 'home/index'%>
+<% end %>

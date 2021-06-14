@@ -1,46 +1,45 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-  <%# current_uri = request.env['PATH_INFO'] 
-    if current_uri == '/'
-        link_class = 'navbar-brand active'
-    else
-        link_class = 'navbar-brand'
-  end
-   %>
-  
-  <%= link_to 'Contacts App', root_path, class: "navbar-brand" %>
+
+  <%= link_to 'Contacts', rolladexes_path, class:"navbar-brand"  %>
+  <%#= link_to 'Contacts App', root_path, class: "navbar-brand" %>
     <%# <a class="navbar-brand" href="#">Contacts App</a> %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <%# <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-        </li> %>
-        <li class="nav-item">
-            <%# 
-                if current_uri == '/about'
-                    link_class = 'nav-link active'
-                else 
-                    link_class = 'nav-link'
-                end 
-            %>
-            <%= link_to 'About', about_path, :class => current_class?(about_path) %>
-          <%# <a class="nav-link" href="/about">About</a> %>
-        </li>
 
-        <li class="nav-item">
-            <%= link_to 'Contacts', rolladexes_path, :class => current_class?(rolladexes_path) %>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'New Contact', new_rolladex_path, :class => current_class?(new_rolladex_path) %>
-        </li>
+        <% if !user_signed_in? %>
+
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, :class => current_class?(new_user_registration_path) %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, :class => current_class?(new_user_session_path) %>
+          </li>
+
+        <% else %>
+
+          <li class="nav-item">
+              <%= link_to 'New Contact', new_rolladex_path, :class => current_class?(new_rolladex_path) %>
+          </li>
+          
+          <li class="nav-item">
+              <%= link_to 'Profile', edit_user_registration_path, :class => current_class?(edit_user_registration_path) %>
+          </li>
+          
+
+        <% end %>
+        
+
+        
         
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
       </form>
     </div>
   </div>
