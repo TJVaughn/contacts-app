@@ -4,5 +4,6 @@ class HomeController < ApplicationController
   end
 
   def about
+    @about_me = "Trevor Vaughn Hauck: Full Stack Developer"
   end
 end
