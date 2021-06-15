@@ -9,16 +9,6 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-# gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootsnap', '~> 1.7', '>= 1.7.5'
 
 group :development, :test do
@@ -34,10 +24,7 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  # gem 'spring'
   gem 'spring', '~> 2.1', '>= 2.1.1'
-  # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 
 end
