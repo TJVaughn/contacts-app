@@ -214,7 +214,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (~> 1.7, >= 1.7.5)
+  bootsnap
   byebug
   capybara (>= 3.26)
   devise (~> 4.8)

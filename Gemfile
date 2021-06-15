@@ -9,7 +9,8 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'bootsnap', '~> 1.7', '>= 1.7.5'
+# gem 'bootsnap', '~> 1.7', '>= 1.7.5'
+gem 'bootsnap', require: false
 gem 'spring', '~> 2.1', '>= 2.1.1'
 
 group :development, :test do
